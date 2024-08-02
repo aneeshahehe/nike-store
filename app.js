@@ -185,7 +185,7 @@ currentProductSizes.forEach((size, index) => {
   close.addEventListener("click", ()=>
   {
     payment.style.display = "none";
-  })
+  });
 
 
 
@@ -194,46 +194,45 @@ currentProductSizes.forEach((size, index) => {
 
 
 const genderList= [
-  {
-    id:1,
-    title: "men",
-    img:"https://images.pexels.com/photos/13565123/pexels-photo-13565123.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    {
+      id:1,
+      title: "men",
+      img:"https://images.pexels.com/photos/13565123/pexels-photo-13565123.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      },
+    {
+      id:2,
+      title: "women",
+      img:"https://images.pexels.com/photos/4753997/pexels-photo-4753997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+
     },
-  {
-    id:2,
-    title: "women",
-    img:"https://images.pexels.com/photos/4753997/pexels-photo-4753997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    {
+      id:3,
+      title: "teens",
+      img:"https://images.pexels.com/photos/9634922/pexels-photo-9634922.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    }
+  ];
 
-  },
-  {
-    id:3,
-    title: "teens",
-    img:"https://images.pexels.com/photos/9634922/pexels-photo-9634922.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-  }
-];
+document.addEventListener('DOMContentLoaded', function() {
+    const outerWrapper = document.querySelector('.genderOuterWrapper');
+    const leftButton = document.querySelector('.navButtonLeft');
+    const rightButton = document.querySelector('.navButtonRight');
 
-let genderChosen= genderList[0];
+    leftButton.addEventListener('click', function() {
+        outerWrapper.scrollBy({
+            left: -200,  // Adjust this value for scroll amount
+            behavior: 'smooth'
+        });
+    });
 
-const wrapperGender = document.querySelector(".genderWrapper");
-const navButton = document.querySelectorAll(".navButton");
-
-const currentGenderImg = document.querySelector(".genderImg");
-const currentGenderButton = document.querySelector(".gender-button");
-
-navButton.forEach((button,index)=>
-{
-  button.addEventListener("click",()=>{
-      wrapperGender.style.transform = `translateX(${-20 * index}vw)`;
-
-
-      genderChosen = genderList[index];
-      currentGenderImg.src = genderChosen[index].img;
-      // currentGenderButton=genderChosen[index].;
-
-
-    
-
-    
-    
-  });
+    rightButton.addEventListener('click', function() {
+        outerWrapper.scrollBy({
+            left: 200,  // Adjust this value for scroll amount
+            behavior: 'smooth'
+        });
 });
+});
+    
+
+    
+    
+
